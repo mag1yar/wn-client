@@ -20,7 +20,7 @@ export const Api = (ctx?: NextPageContext | GetServerSidePropsContext): ApiRetur
     const token = cookies.token
 
     const instance = axios.create({
-        baseURL: "http://localhost:3001",
+        baseURL: "https://wn-server.herokuapp.com",
         headers: {
             "Content-type": "application/json",
             Authorization: "Bearer " + token,

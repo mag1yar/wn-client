@@ -16,7 +16,7 @@ const connection: ConnectionOptions = {
 }
 
 export default NextAuth({
-    adapter: TypeORMLegacyAdapter(connection),
+    // adapter: TypeORMLegacyAdapter(connection),
     providers: [
         CredentialProvider({
             name: "wn.com",
