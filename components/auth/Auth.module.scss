@@ -1,0 +1,73 @@
+.modal {
+  width: 300px;
+  padding: 20px 25px;
+  // background-color: #f4ebdb !important;
+
+  // @media screen and (max-width: 600px) {
+  //   width: 400px;
+  // }
+
+  &__login {
+    // position: absolute;
+    // top: 50%;
+    // left: 50%;
+    // transform: translate(-50%, -50%);
+    width: 100%;
+
+    &_title {
+      margin-bottom: 15px !important;
+
+      p {
+        margin-top: 0 !important;
+      }
+
+      svg {
+        margin-right: 15px;
+      }
+
+      &_back {
+        cursor: pointer;
+
+        &:hover {
+          color: #537072;
+        }
+      }
+    }
+
+    &_buttons {
+      button {
+        position: relative;
+        margin-bottom: 10px;
+        &:last-child {
+          margin-bottom: 0;
+        }
+        svg {
+          position: absolute;
+          left: 15px;
+          top: 7px;
+        }
+      }
+    }
+
+    &_form {
+      &_input {
+        margin-bottom: 15px !important;
+        width: 100%;
+      }
+    }
+
+    &_signup {
+      margin-top: 15px !important;
+      a {
+        cursor: pointer;
+        text-decoration: underline;
+        &:hover {
+          color: #537072;
+        }
+      }
+    }
+  }
+  &__button {
+    height: 50px;
+  }
+}
