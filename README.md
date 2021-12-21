@@ -7,7 +7,7 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Pages
 
-- Client - [Vercel](https://wn-client-d2zrrrjtg-mag1yar.vercel.app/)
+- Client - [Vercel](https://wn-client-mag1yar.vercel.app/)
 - Server - [Heroku](https://wn-server.herokuapp.com/)
 
 ### DB
