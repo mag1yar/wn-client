@@ -138,11 +138,9 @@ const Add: NextPage = () => {
             for (const key in dto) {
                 data.append(key, dto[key])
             }
-            console.log(dto)
 
             const novel = await Api()
                 .novels.create(data)
-                .catch(() => console.log(data))
 
             router.push(`/novel/${novel.id}`)
             enqueueSnackbar("Новелла создана", { variant: "success" })

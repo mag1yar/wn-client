@@ -191,7 +191,7 @@ const Novel: NextPage<NovelProps> = (props) => {
     React.useEffect(() => {
         setDescriptionHeight(descriptionRef?.current?.clientHeight || 0)
     }, [])
-
+    console.log(novel)
     return (
         <MainLayout>
             <Grid container lg={12} md={12} sm={12} xs={12} className={styles.novel}>
@@ -242,10 +242,14 @@ const Novel: NextPage<NovelProps> = (props) => {
                                 <ListItem>
                                     <ListItemText primary={novel.status} secondary="Статус" />
                                 </ListItem>
-                                <Divider />
-                                <ListItem>
-                                    <ListItemText primary={novel.ageRating ? "+18" : "Нету"} secondary="Возрастной рейтинг" />
-                                </ListItem>
+                                {novel.ageRating && (
+                                    <>
+                                        <Divider />
+                                        <ListItem>
+                                            <ListItemText primary={novel.ageRating} secondary="Возрастной рейтинг" />
+                                        </ListItem>
+                                    </>
+                                )}
 
                                 {novel.chapters && (
                                     <>
@@ -328,11 +332,18 @@ const Novel: NextPage<NovelProps> = (props) => {
                                             {showDescription ? "Скрыть" : "Больше..."}
                                         </Button>
                                     )}
-                                    <Divider />
-                                    <Typography variant="subtitle1">Жанры</Typography>
-                                    <Box sx={{ p: 1 }}>
-                                        {novel.genres && novel.genres.map((genre: string) => <Chip key={genre} label={genre} className={styles.novel__chip} />)}
-                                    </Box>
+
+                                    {novel.genres && (
+                                        <>
+                                            <Divider />
+                                            <Typography variant="subtitle1">Жанры</Typography>
+                                            <Box sx={{ p: 1 }}>
+                                                {novel.genres &&
+                                                    novel.genres.map((genre: string) => <Chip key={genre} label={genre} className={styles.novel__chip} />)}
+                                            </Box>
+                                        </>
+                                    )}
+
                                     <Divider />
                                     <Typography variant="subtitle1">Тэги</Typography>
                                     <Box sx={{ p: 1 }}>

@@ -28,7 +28,6 @@ const Home: NextPage<HomeProps> = (props) => {
     })
     return (
         <MainLayout>
-            {process.env.NEXT_PUBLIC_BACKEND}
             <Slider data={sliderData} more="/popular" moreTitle="Популярные" moreUnder="Читать" />
         </MainLayout>
     )

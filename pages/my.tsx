@@ -76,26 +76,4 @@ export const getServerSideProps: GetServerSideProps = wrapper.getServerSideProps
     )
 )
 
-// export const getServerSideProps: GetServerSideProps = wrapper.getServerSideProps((store) => async (ctx) => {
-//     try {
-//         const state = store.getState()
-//         const dto: SearchNovelsDto = {
-//             authorId: state.user.data?.id,
-//         }
-//         const { items: novels } = await Api(ctx).novels.getSearch(dto)
-//         return {
-//             props: {
-//                 novels,
-//             },
-//         }
-//     } catch (error) {
-//         console.log(error)
-//     }
-//     return {
-//         props: {
-//             novels: null,
-//         },
-//     }
-// })
-
 export default My

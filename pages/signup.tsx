@@ -29,7 +29,6 @@ const SignUp: NextPage = () => {
     const dispatch = useAppDispatch()
 
     const form = useForm({ resolver: yupResolver(SignUpFormSchema), mode: "onChange" })
-    console.log(form.formState.errors)
     const [loading, setLoading] = React.useState(false)
 
     const { enqueueSnackbar, closeSnackbar } = useSnackbar()

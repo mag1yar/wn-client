@@ -8,6 +8,7 @@ import React from "react"
 import MoreImage from "../../../../public/image/More.png"
 import { Delete as DeleteIcon, PhotoCamera as PhotoCameraIcon } from "@mui/icons-material"
 import { Controller, useFormContext } from "react-hook-form"
+import ChopImage from "../../../modal/chopImage"
 
 interface UploadButtonProps {
     accept?: string | undefined
@@ -18,14 +19,23 @@ const UploadButton: React.FC<UploadButtonProps> = (props) => {
     const { accept, name } = props
     const { register, formState, control, setValue } = useFormContext()
 
+    const [openChop, setOpenChop] = React.useState(false)
+    const [imageChop, setImageChop] = React.useState("")
+
     const [preview, setPreview] = React.useState("")
     const [hover, setHover] = React.useState(false)
 
     const OnUploadImage = (e: any) => {
         if (e.target.files && e.target.files[0]) {
-            setPreview(URL.createObjectURL(e.target.files[0]))
-            setValue(name, e.target.files[0])
+            setImageChop(URL.createObjectURL(e.target.files[0]))
+            setOpenChop(true)
         }
+    }
+
+    const handleReceiveImage = (val: any, file: File) => {
+        setPreview(val)
+        setValue(name, file)
+        setOpenChop(false)
     }
 
     const onMouseEnter = () => {
@@ -38,10 +48,17 @@ const UploadButton: React.FC<UploadButtonProps> = (props) => {
     }
 
     return (
-        <Paper className={styles.button} elevation={6} onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
+        <Paper className={styles.button} elevation={6} onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave} style={{ width: "100%", height: "100%" }}>
             {hover && (
                 <div className={styles.button__delete}>
-                    <IconButton color="error" className={styles.button__delete_button} onClick={() => setPreview("")}>
+                    <IconButton
+                        color="error"
+                        className={styles.button__delete_button}
+                        onClick={() => {
+                            setPreview("")
+                            setHover(false)
+                        }}
+                    >
                         <DeleteIcon />
                     </IconButton>
                 </div>
@@ -68,6 +85,7 @@ const UploadButton: React.FC<UploadButtonProps> = (props) => {
                     </div>
                 </span>
             )}
+            <ChopImage open={openChop} onClose={setOpenChop} image={imageChop} submit={handleReceiveImage} />
         </Paper>
     )
 }

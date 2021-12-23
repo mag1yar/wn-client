@@ -18,7 +18,6 @@ const Date: React.FC<DateProps> = (props) => {
     const [value, setValue] = React.useState<Moment>(moment())
     // const matches = useMediaQuery("(min-width:600px)")
     const handleChange = (date: Moment, field: any) => {
-        console.log(date)
         field.onChange(date)
         setValue(date)
     }

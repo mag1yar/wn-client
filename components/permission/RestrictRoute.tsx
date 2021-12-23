@@ -11,7 +11,6 @@ const hasPermission = (user: UserDto, roles: string[]) => {
 
 export function RestrictRoute(store: any, gssp: GetServerSideProps, roles?: string[]) {
     return async (ctx: GetServerSidePropsContext) => {
-        const { res } = ctx
         const { user } = store.getState()
         const userData = user.data
 
@@ -27,7 +26,6 @@ export function RestrictRoute(store: any, gssp: GetServerSideProps, roles?: stri
 
         if (roles) {
             const permission = hasPermission(userData, roles)
-            console.log(permission)
             if (!permission) {
                 return {
                     redirect: {

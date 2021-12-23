@@ -3,18 +3,18 @@ import styles from "../Auth.module.scss"
 import React from "react"
 import { setCookie } from "nookies"
 
-import { useAppDispatch } from "../../../redux/hooks"
-import { setUserData } from "../../../redux/reducers/users"
-import { CreateUserDto } from "../../../redux/types/users"
+import { useAppDispatch } from "../../../../redux/hooks"
+import { setUserData } from "../../../../redux/reducers/users"
+import { CreateUserDto } from "../../../../redux/types/users"
 
 import { FormProvider, useForm } from "react-hook-form"
 import { yupResolver } from "@hookform/resolvers/yup/dist/yup"
-import { Api } from "../../../redux/api"
-import { SignUpFormSchema } from "../../../utils/validation"
+import { Api } from "../../../../redux/api"
+import { SignUpFormSchema } from "../../../../utils/validation"
 
 import { Button, Link, Typography } from "@mui/material"
 
-import FormField from "../../dataEntry/input/FormField"
+import FormField from "../../../dataEntry/input/FormField"
 
 interface SignUpFormProps {
     onOpenLogin: () => void
